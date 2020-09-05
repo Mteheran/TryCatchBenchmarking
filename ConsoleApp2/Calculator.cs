@@ -5,7 +5,7 @@ using System;
 namespace TryCatchBenchmarking
 {
 
-	[SimpleJob(RuntimeMoniker.NetCoreApp30)]
+	[SimpleJob(RuntimeMoniker.NetCoreApp30, launchCount: 1, warmupCount: 2, targetCount: 5, invocationCount: 1)]
 	[RPlotExporter]
 	public class Calculator
     {
@@ -18,10 +18,10 @@ namespace TryCatchBenchmarking
 		[BenchmarkCategory("Run")]
 		public double GetDivisionDivisionException() => DivisionException();
 
-		[Params(0, 1, 2, 3)]
+		[Params(0, 1, 2)]
 		public int number1 { get; set; }
 
-		[Params(0, 1, 2, 3)]
+		[Params(0, 1, 2)]
 		public int number2 { get; set; }
 
 		public double Division()
